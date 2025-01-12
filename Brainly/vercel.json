@@ -7,7 +7,7 @@
   },
   "functions": {
     "api/**/*.{js,ts}": {
-      "runtime": "@vercel/node@18"
+      "runtime": "nodejs18.x"
     }
   },
   "regions": ["iad1"]
