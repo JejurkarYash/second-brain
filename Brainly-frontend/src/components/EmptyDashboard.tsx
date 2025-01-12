@@ -1,6 +1,3 @@
-import { div, main } from "framer-motion/client";
-import { ShieldEllipsisIcon } from "lucide-react";
-import React from "react";
 import emptyDashboard from "../assets/empty-dashboard.png";
 
 const EmptyDashboard = () => {

@@ -1,10 +1,8 @@
-import { Label } from "@radix-ui/react-label";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Brain, Share2 } from "lucide-react";
+import { Brain } from "lucide-react";
 const Hero = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
   const handleGetStarted = () => {
     // checking if the token is present or not

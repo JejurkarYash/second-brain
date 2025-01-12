@@ -1,4 +1,4 @@
-import { BookMarked, Link2, Tags, Twitter, Youtube } from "lucide-react";
+import { BookMarked, Link2, Tags, Twitter } from "lucide-react";
 
 const features = [
   {
@@ -26,7 +26,10 @@ const features = [
 
 function Features() {
   return (
-    <section id="features" className="container space-y-12 py-24 md:py-32 font-satoshi ">
+    <section
+      id="features"
+      className="container space-y-12 py-24 md:py-32 font-satoshi "
+    >
       <div className="mx-auto max-w-[600px] space-y-4 text-center">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
           Everything You Need in One Place

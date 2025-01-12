@@ -35,7 +35,7 @@ const SignUp = () => {
 
     // backend request using axios
     try {
-      const response = await axios.post(
+      await axios.post(
         `${import.meta.env.VITE_backendUrl}/api/v1/signup`,
         Data
       );

@@ -1,4 +1,3 @@
-import React, { ReactElement } from "react";
 import {
   Card,
   CardHeader,
@@ -6,8 +5,7 @@ import {
   CardTitle,
   CardContent,
 } from "./card";
-import { types } from "util";
-import { Twitter } from "lucide-react";
+// import { Twitter } from "lucide-react";
 
 interface FeaturesCardPorps {
   title: string;
@@ -15,16 +13,15 @@ interface FeaturesCardPorps {
   icon: "twitter";
 }
 
-const icons = {
-  twiiter: <Twitter className=" text-purple-700 " size={40} />,
-};
+// const icons = {
+//   twiiter: <Twitter className=" text-purple-700 " size={40} />,
+// };
 
 const FeaturesCard = (props: FeaturesCardPorps) => {
   return (
     <div className=" flex flex-col items-center justify-center m-5 ">
       <Card className=" min-h-[5rem] w-[50vh] flex flex-col items-center justify-center ">
         <CardHeader className=" flex flex-col items-center justify-center space-y-3 ">
-
           <CardTitle className=" font-satoshi font-semibold ">
             {props.title}
           </CardTitle>

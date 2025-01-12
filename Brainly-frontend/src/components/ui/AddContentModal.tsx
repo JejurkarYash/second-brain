@@ -2,7 +2,7 @@ import { Label } from "@radix-ui/react-label";
 import { X } from "lucide-react";
 import { Input } from "./input";
 import { Button } from "./Button";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import axios from "axios";
 
 // const url = process.env.VITE_backendUrl;
@@ -28,12 +28,12 @@ const AddContentModal = ({ isOpen, onClose }: AddContentModalProp) => {
     // const url = `${import.meta.env.backendUrl}/api/v1/content`;
     // console.log(url);
 
-    const response = await axios.post(
+    await axios.post(
       `${import.meta.env.VITE_backendurl}/api/v1/content`,
       Data,
       {
         headers: {
-          Authorization: token,
+        Authorization: token,
         },
       }
     );

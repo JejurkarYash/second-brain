@@ -1,5 +1,3 @@
-import React from "react";
-
 export const TwitterIcon = ({ color }: { color: string }) => {
   return (
     <svg
@@ -14,4 +12,4 @@ export const TwitterIcon = ({ color }: { color: string }) => {
       />
     </svg>
   );
-};  
+};
