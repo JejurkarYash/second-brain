@@ -1,16 +1,14 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.{js,ts}",
+      "use": "@vercel/node"
+    }
+  ],
   "build": {
     "env": {
       "CI": "false"
-    }
-  },
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
-    },
-    "api/**/*.ts": {
-      "runtime": "nodejs18.x"
     }
   },
   "regions": ["iad1"]
