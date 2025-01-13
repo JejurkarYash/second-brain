@@ -2,8 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.{js,ts}",
+      "src": "src/index.ts",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "src/index.ts"
     }
   ],
   "build": {
@@ -11,12 +17,5 @@
       "CI": "false"
     }
   },
-  "regions": ["iad1"],
-
-  "routes": [
-    {
-      "src": "/api/v1/(.*)",
-      "dest": "src/index.ts"
-    }
-  ]
+  "regions": ["iad1"]
 }
