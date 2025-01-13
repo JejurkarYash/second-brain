@@ -11,5 +11,12 @@
       "CI": "false"
     }
   },
-  "regions": ["iad1"]
+  "regions": ["iad1"],
+
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
 }
