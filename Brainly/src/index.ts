@@ -307,6 +307,7 @@ app.post("/api/v1/brain/share", userMiddleware, async (req, res) => {
 app.get("/api/v1/brain/:shareLink", async (req, res) => {
 
     // getting hash from parameter 
+    console.log("control reach here ");
     const hash = req.params.shareLink;
     try {
         // checking the hash in the link table 
