@@ -24,7 +24,11 @@ const jwtPass: string = process.env.JWT_PASS!;
 // body parser or  middleware 
 app.use(express.json());
 //  cors
-app.use(cors());
+app.use(cors({
+    origin: 'https://second-brain-8gsk.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // If you're using cookies or authentication headers
+}));;
 
 
 // for user registration in the db 
