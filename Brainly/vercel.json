@@ -3,19 +3,23 @@
   "builds": [
     {
       "src": "src/index.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 10,
+        "includeFiles": ["dist/**/*"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/v1/(.*)",
-      "dest": "/src/index.ts"
+      "dest": "/dist/index.js"
     }
   ],
+  "regions": ["iad1"],
   "build": {
     "env": {
       "CI": "false"
     }
-  },
-  "regions": ["iad1"]
+  }
 }
