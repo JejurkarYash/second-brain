@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "/dist/api/index.js",
+  "type": "commonjs",
   "scripts": {
-    "build": " npx tsc -b ",
-    "start": " node dist/index.js ",
-    "dev": " tsc -b &&  nodemon dist/index.js ",
+    "build": "  tsc ",
+    "start": " node  dist/api/index.js",
+    "dev": " tsc -b &&  nodemon dist/api/index.js ",
     "vercel-build": "echo hello "
   },
   "keywords": [],
