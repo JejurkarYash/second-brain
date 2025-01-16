@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "./", // Base directory for your source files
+    "outDir": "./dist", // Directory for output files
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -15,6 +15,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["/api/*.ts ", "src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["api/**/*.ts"], // Include TypeScript files in the ./api folder
+  "exclude": ["node_modules", "dist"] // Exclude unnecessary folders
 }

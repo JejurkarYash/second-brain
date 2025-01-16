@@ -28,6 +28,7 @@ app.use(express_1.default.json());
 //     credentials: true, // If you're using cookies or authentication headers
 // }));;
 app.use((0, cors_1.default)());
+// for testing purpose 
 app.get("/", (req, res) => {
     res.json({
         message: "this is for testing purpose ! "
