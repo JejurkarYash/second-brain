@@ -22,7 +22,17 @@ const jwtPass = process.env.JWT_PASS;
 // body parser or  middleware 
 app.use(express_1.default.json());
 //  cors
+// app.use(cors({
+//     origin: 'https://second-brain-8gsk.vercel.app',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true, // If you're using cookies or authentication headers
+// }));;
 app.use((0, cors_1.default)());
+app.get("/", (req, res) => {
+    res.json({
+        message: "this is for testing purpose ! "
+    });
+});
 // for user registration in the db 
 app.post("/api/v1/signup", async (req, res) => {
     try {
@@ -277,4 +287,5 @@ app.get("/api/v1/brain/:shareLink", async (req, res) => {
 app.listen(PORT, () => {
     console.log("Server is listening on port ", PORT);
 });
+exports.default = app;
 //# sourceMappingURL=index.js.map

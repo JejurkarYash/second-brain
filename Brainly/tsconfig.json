@@ -11,10 +11,10 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*"],
+  "include": ["/api/*.ts ", "src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
