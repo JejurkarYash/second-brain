@@ -7,7 +7,8 @@
   "scripts": {
     "build": "  tsc ",
     "start": " node  dist/api/index.js",
-    "dev": " tsc -b &&  nodemon dist/api/index.js "
+    "dev": " tsc -b &&  nodemon dist/api/index.js ",
+    "vercel-build": " echo hello "
   },
   "keywords": [],
   "author": "",
