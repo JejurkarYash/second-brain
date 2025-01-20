@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { userModel, contentModel, linkModel } from './db';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import jwt from 'jsonwebtoken';
 import { userMiddleware } from './middlewares/middleware';
