@@ -1,8 +1,10 @@
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
 import { Brain } from "lucide-react";
+import { motion } from "motion/react";
+
 const Hero = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleGetStarted = () => {
     // checking if the token is present or not
@@ -19,7 +21,12 @@ const navigate = useNavigate();
   return (
     <div className="container relative font-satoshi ">
       <div className="flex flex-col items-center justify-center space-y-10 py-24 text-center md:py-32">
-        <div className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-6"
+        >
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl space-x-2  md:text-6xl    ">
             <span>Your Digital Second Brain for</span>
             <span className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
@@ -31,7 +38,7 @@ const navigate = useNavigate();
             From tweets to videos, documents to links - everything you need,
             instantly accessible.
           </p>
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-4 min-[400px]:flex-row">
           <Button
             size="lg"

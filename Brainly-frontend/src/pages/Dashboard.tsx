@@ -46,6 +46,7 @@ const Dashboard = () => {
 
   const handleDeleteContent = async (contentId: string) => {
     try {
+      console.log(`${import.meta.env.VITE_backendUrl}/api/v1/content`);
       const response = await axios.delete(
         `${import.meta.env.VITE_backendUrl}/api/v1/content`,
         {

@@ -5,8 +5,6 @@ import { Button } from "./Button";
 import { FormEvent, useState } from "react";
 import axios from "axios";
 
-// const url = process.env.VITE_backendUrl;
-
 interface AddContentModalProp {
   isOpen: boolean;
   onClose: () => void;
@@ -17,6 +15,8 @@ const AddContentModal = ({ isOpen, onClose }: AddContentModalProp) => {
   const [contentType, setContentType] = useState<string>("");
   const [link, setLink] = useState<string>("");
 
+  const backendUrl = `${import.meta.env.VITE_backendUrl}`;
+
   const handleAddContent = async (e: FormEvent) => {
     e.preventDefault(); // preventing the page reload
     const Data = {
@@ -25,18 +25,17 @@ const AddContentModal = ({ isOpen, onClose }: AddContentModalProp) => {
       type: contentType,
     };
     const token = localStorage.getItem("token");
-    // const url = `${import.meta.env.backendUrl}/api/v1/content`;
-    // console.log(url);
-
-    await axios.post(
-      `${import.meta.env.VITE_backendurl}/api/v1/content`,
-      Data,
-      {
+    try {
+      const url = `${backendUrl}/api/v1/content`;
+      console.log(url);
+      await axios.post(url, Data, {
         headers: {
-        Authorization: token,
+          Authorization: token,
         },
-      }
-    );
+      });
+    } catch (e) {
+      // console.log(e);
+    }
 
     setTitle("");
     setContentType("");
