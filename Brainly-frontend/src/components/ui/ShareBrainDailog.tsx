@@ -30,6 +30,7 @@ const ShareBrainDailog = ({ isOpen, onClose }: ShareBrainDailogProps) => {
 
       const hash = response.data.hash;
       const link = `${import.meta.env.VITE_frontendUrl}/shared-brain/${hash}`;
+      console.log(link);
       setShareLink(link);
       console.log(shareLink);
     };
