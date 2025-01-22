@@ -8,7 +8,14 @@ import { useEffect, useState } from "react";
 import { useContents } from "@/hooks/useContents";
 import ShareBrainDailog from "@/components/ui/ShareBrainDailog";
 import EmptyDashboard from "@/components/EmptyDashboard";
+import DeleteModel from "@/components/ui/DeleteModel";
 import axios from "axios";
+
+type DeletedContentData = {
+  contentId: string | null;
+  title: string;
+};
+
 const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [shareBrainModal, setShareBrainModal] = useState(false);
@@ -16,6 +23,12 @@ const Dashboard = () => {
   const [contentType, setContentType] = useState("all");
   const [isEmpty, setIsEmpty] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [deleteContentModel, setDeleteContentModel] = useState(false);
+  const [deletedContentData, setDeletedContentData] =
+    useState<DeletedContentData>({
+      contentId: null,
+      title: "",
+    });
 
   useEffect(() => {
     fetchData();
@@ -44,7 +57,14 @@ const Dashboard = () => {
     setSidebarOpen(false); // Close sidebar on item click (for mobile view)
   };
 
-  const handleDeleteContent = async (contentId: string) => {
+  // this functin is used to get the content id and title
+  const handleDeleteContent = async (contentId: string, title: string) => {
+    setDeleteContentModel(true);
+    setDeletedContentData({ contentId, title });
+  };
+
+  //  this function delete the actual content
+  const deleteContent = async (contentId: any) => {
     try {
       console.log(`${import.meta.env.VITE_backendUrl}/api/v1/content`);
       const response = await axios.delete(
@@ -61,6 +81,7 @@ const Dashboard = () => {
 
       if (response.status === 200) {
         fetchData();
+        setDeleteContentModel(false);
       } else {
         console.log("Error in Deleting ");
       }
@@ -71,6 +92,13 @@ const Dashboard = () => {
 
   return (
     <main className="fixed font-satoshi top-0 left-0 flex flex-col md:flex-row justify-between gap-4 md:gap-6 w-full h-screen bg-purple-50 overflow-y-auto">
+      {/* Delete conent model  */}
+      <DeleteModel
+        isOpen={deleteContentModel}
+        onClose={() => setDeleteContentModel(false)}
+        Data={deletedContentData}
+        onDelete={deleteContent}
+      />
       {/* Add content modal */}
       <AddContentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <ShareBrainDailog
@@ -126,7 +154,7 @@ const Dashboard = () => {
                   url={link}
                   type={type}
                   title={title}
-                  onDelete={() => handleDeleteContent(_id)}
+                  onDelete={() => handleDeleteContent(_id, title)}
                 />
               ))
             : contents
@@ -137,7 +165,7 @@ const Dashboard = () => {
                     url={link}
                     type={type}
                     title={title}
-                    onDelete={() => handleDeleteContent(_id)}
+                    onDelete={() => handleDeleteContent(_id, title)}
                   />
                 ))}
         </div>
